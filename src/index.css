@@ -1,0 +1,278 @@
+:root {
+  /* dark shades of primary color*/
+  --clr-primary-1: hsl(205, 86%, 17%);
+  --clr-primary-2: hsl(205, 77%, 27%);
+  --clr-primary-3: hsl(205, 72%, 37%);
+  --clr-primary-4: hsl(205, 63%, 48%);
+  /* primary/main color */
+  --clr-primary-5: hsl(205, 78%, 60%);
+  /* lighter shades of primary color */
+  --clr-primary-6: hsl(205, 89%, 70%);
+  --clr-primary-7: hsl(205, 90%, 76%);
+  --clr-primary-8: hsl(205, 86%, 81%);
+  --clr-primary-9: hsl(205, 90%, 88%);
+  --clr-primary-10: hsl(205, 100%, 96%);
+  /* darkest grey - used for headings */
+  --clr-grey-1: hsl(209, 61%, 16%);
+  --clr-grey-2: hsl(211, 39%, 23%);
+  --clr-grey-3: hsl(209, 34%, 30%);
+  --clr-grey-4: hsl(209, 28%, 39%);
+  /* grey used for paragraphs */
+  --clr-grey-5: hsl(210, 22%, 49%);
+  --clr-grey-6: hsl(209, 23%, 60%);
+  --clr-grey-7: hsl(211, 27%, 70%);
+  --clr-grey-8: hsl(210, 31%, 80%);
+  --clr-grey-9: hsl(212, 33%, 89%);
+  --clr-grey-10: hsl(210, 36%, 96%);
+  --clr-white: #fff;
+  --clr-purple: #4b145b;
+  --clr-red-special: #b4345c;
+  --clr-grey-special: #eae6eb;
+  --clr-red-dark: hsl(360, 67%, 44%);
+  --clr-red-light: hsl(360, 71%, 66%);
+  --clr-green-dark: hsl(125, 67%, 44%);
+  --clr-green-light: hsl(125, 71%, 66%);
+  --clr-black: #222;
+  --transition: all 0.3s linear;
+  --spacing: 0.1rem;
+  --radius: 0.25rem;
+  --light-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  --dark-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  --max-width: 1170px;
+  --fixed-width: 700px;
+  --clear-pink:#f28ab2;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300&display=swap');
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: 'Roboto Slab', sans-serif;
+  line-height: 1.5;
+  font-size: 0.875rem;
+  background-color: var(--clr-grey-special);
+}
+
+ul{
+  list-style-type: none;
+}
+a{
+  text-decoration: none;
+}
+
+.nav{
+  width: 90vw;
+  background-color: var(--clr-green-dark);
+  margin: 0 auto;
+}
+
+.nav-center{
+  display: flex;  
+  height: 4rem;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+}
+.icon{
+  text-transform: capitalize;
+  display: inline-block;
+  font-weight: bold;
+  margin-left: 0.75rem;
+  letter-spacing: 2px;
+  font-size: 1.2rem;
+  padding: 0.25rem 0.5rem;
+}
+.nav-links {
+  display: flex;
+  align-items: center;
+}
+.nav-links li {
+  text-transform: capitalize;
+  display: inline-block;
+  font-weight: bold;
+  margin-right: 0.75rem;
+  letter-spacing: 2px;
+  font-size: 1rem;
+  padding: 0.25rem 0.5rem;
+}
+
+/* login page */
+.login-page {
+  width: 90vw;
+  margin: 2rem auto;  
+  display: flex;
+  justify-content: center;
+}
+.login-page form {
+  min-width: 400px;
+  width: 65%;
+  display: flex;
+  flex-direction: column;
+}
+.login-page form h3{
+  text-align: center;
+  text-transform: capitalize;
+  font-size: 1.5rem;
+  letter-spacing: 2px;
+}
+.login-page form input{
+  background-color: var(--clr-primary-7);
+  margin: 0.25rem;
+  font-size: 1.5rem;
+  border-color: transparent;
+  border-radius: var(--radius);
+}
+.login-page form input[type=text],.login-page form input[type=password],.login-page form input[type=email]{
+  padding: 0.5rem;
+}
+
+.login-page form input:focus,.login-page form button:focus{
+  outline: none;
+}
+.login-page form button {
+  background-color: var(--clr-primary-6);
+  border-color: transparent;
+  border-radius: var(--radius);
+  color: var(--clr-white);
+  margin: 0.25rem;
+  cursor: pointer;
+  font-size: 1rem;
+  padding: 0.25rem;
+}
+.login-page form button:hover{
+  background-color: var(--clr-primary-3);
+}
+.signup {
+  display: flex;
+  justify-content: center;
+  font-size: 1rem;
+}
+.signup p{
+  margin-right: 0.25rem;
+}
+
+/* post */
+.section-center{
+  width: 90vw;
+  max-width: var(--fixed-width);
+  margin: 2rem auto;
+  background-color: var(--clr-white);
+  padding: 1rem;
+  box-shadow: var(--dark-shadow);
+  border-radius: var(--radius);
+}
+
+.todo-form {
+  padding: 1rem;
+}
+
+.todo-form h3 {
+  text-align: center;
+  text-transform: capitalize;
+  margin-bottom: 0.5rem;
+}
+
+.form-control {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-control input {
+  width: 25rem;
+  height: 25px;
+  padding: 1rem;
+  background-color: var(--clr-grey-8);
+  border-radius: var(--radius);
+  border: transparent;
+}
+.submit-btn{
+  width: 5rem;
+  padding: 0.5rem;
+  font-size: 1rem;
+  font-weight: bold;
+  color: var(--clr-white);
+  background-color: var(--clr-primary-6);
+  border-radius: var(--radius);
+  cursor: pointer;
+  border: transparent;
+}
+.submit-btn:hover{
+  background-color: var(--clr-primary-3);
+}
+.submit-btn:focus,.clear-btn:focus{
+  outline: none;
+}
+
+.clear-btn {
+  width: 45%;
+  padding: 0.5rem;
+  border: transparent;
+  background-color: var(--clear-pink);
+  color: var(--clr-white);
+  cursor: pointer;
+  font-weight: bold;
+  border-radius: var(--radius);
+}
+.clear-btn:hover{
+  background-color: var(--clr-red-special);
+}
+.todo-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+}
+
+.todo-list{
+  width: 100%;
+  margin: 0.25rem;
+  padding: 0.25rem;
+  display: flex;
+  justify-content: space-between;
+}
+.todo-list h5{
+  font-size: 1.25rem;
+}
+.btn-container button{
+  margin: 0.25rem;
+}
+.edit{
+  font-size: 1.25rem;
+  padding: 0.1rem;
+  color: rgb(137, 145, 146);
+}
+.edit:hover{
+  color: #222;
+}
+
+.delete{
+  font-size: 1.25rem;
+  padding: 0.1rem;
+  color: var(--clr-red-light);
+}
+.delete:hover{
+  color: var(--clr-red-dark);
+}
+.logout{
+  display: flex;
+  justify-content: center;
+}
+.logout button{
+  cursor: pointer;
+  margin: 4rem auto;
+  border-radius: var(--radius);
+  font-size: 2rem;
+  padding:1rem;
+  font-weight: bold;
+  background-color: var(--clr-red-light);
+  color: var(--clr-white);
+}
+.logout button:hover{
+  background-color: var(--clr-red-dark);
+}
