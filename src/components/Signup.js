@@ -17,7 +17,7 @@ const Signup = () => {
   const signupForm = (e) => {
     if (passwordAgain === password) {
         e.preventDefault();
-        const url = "http://localhost:5000/user/register";
+        const url = "https://mytodoslist313.herokuapp.com/user/register";
         axios.post(url,
           {
             "username": username,

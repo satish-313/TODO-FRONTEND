@@ -10,7 +10,7 @@ const AppProvider = ({ children }) => {
   const [currentUpdateItem, setCurrentUpdateItem] = useState(null)
   const [user,setUser] = useState('Guest')
 
-  let url = 'http://localhost:5000/post'
+  let url = 'https://mytodoslist313.herokuapp.com/post'
 
   const fetchInfo = () => {
     axios.get(url, { headers: { 'auth-token': localStorage.getItem('auth-token') } })
