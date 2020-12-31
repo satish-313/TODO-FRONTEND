@@ -3,10 +3,13 @@ import {Redirect,Link} from 'react-router-dom';
 import axios from 'axios';
 import {useGlobalContext} from '../context';
 
+import ShowError from './ShowError'
+
 const Login = () => {
-  const {auth,setAuth} = useGlobalContext();
+  const {auth,setLoading} = useGlobalContext();
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
+  const [err,setErr] = useState({type:false,msg:''})
 
   const clearForm = () => {
     setUsername('')
@@ -14,6 +17,7 @@ const Login = () => {
   }
   const LoginForm = (e) => {
     e.preventDefault();
+    //const local_url = "http://localhost:5000/user/login"
     const url = "https://mytodoslist313.herokuapp.com/user/login";
     axios.post(url,
       {
@@ -22,10 +26,12 @@ const Login = () => {
       }
     )
       .then(res => {
-        console.log(res.data)
         localStorage.setItem('auth-token',res.headers['auth-token'])
         if(res.data.auth){
-          setAuth(true)
+          setLoading(true)
+        }
+        else{
+          setErr({type:true,msg:res.data.err})
         }
       })
       .catch(err => console.log(err))
@@ -47,6 +53,7 @@ const Login = () => {
         <p>if you new signup?</p>
         <Link to="/signup">Signup</Link>
       </div>
+      {err.type && <ShowError error={err} setError={setErr}/>}
     </div>
   )
 }

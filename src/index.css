@@ -276,3 +276,12 @@ a{
 .logout button:hover{
   background-color: var(--clr-red-dark);
 }
+.loading{
+  display: flex;
+  justify-content: center;
+  margin-top:5rem;
+}
+.error-msg{
+  text-align: center;
+  font-size: 1.75rem;
+}

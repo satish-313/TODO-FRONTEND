@@ -6,7 +6,11 @@ import { useGlobalContext } from '../context';
 import List from './List';
 
 const Post = () => {
-  const { auth, todos, addTodo, currentTodo, setCurrentTodo } = useGlobalContext();
+  const { auth, todos, addTodo, currentTodo, setCurrentTodo ,loading } = useGlobalContext();
+
+  if(loading){
+    <loading/>
+  }
 
   return (
     <div>

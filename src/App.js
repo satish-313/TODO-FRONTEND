@@ -10,9 +10,15 @@ import Signup from './components/Signup'
 import Login from './components/Login'
 import Post from './components/Post'
 import Logout from './components/Logout'
+import Loading from './components/Loading'
 
 const App = () => {
-  const { auth } = useGlobalContext();
+  const { auth, loading } = useGlobalContext();
+
+  if (loading) {
+    return (<Loading />)
+  }
+
   return (
     <main>
       <Router>
@@ -33,7 +39,6 @@ const App = () => {
         </Switch>
       </Router>
     </main>
-
   )
 }
 

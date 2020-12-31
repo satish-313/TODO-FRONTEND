@@ -9,16 +9,18 @@ const AppProvider = ({ children }) => {
   const [isEditing, setIsEditing] = useState(false)
   const [currentUpdateItem, setCurrentUpdateItem] = useState(null)
   const [user,setUser] = useState('Guest')
+  const [loading,setLoading] = useState(true)
 
   let url = 'https://mytodoslist313.herokuapp.com/post'
+  //let url ="http://localhost:5000/post"
 
   const fetchInfo = () => {
     axios.get(url, { headers: { 'auth-token': localStorage.getItem('auth-token') } })
       .then(res => {
-        setAuth(res.data.auth)
         setTodos(res.data.todaData)
-        console.log(res.data)
         setUser(res.data.user)
+        setAuth(res.data.auth)
+        setLoading(false)
       })
       .catch(err => console.log(err))
   }
@@ -52,17 +54,9 @@ const AppProvider = ({ children }) => {
       .catch(err => console.log(err))
   }
 
-  /* const updateTodo = (id) =>{
-    url = `${url}/post/${id}`
-    axios.post(url,{"todo":currentTodo},{headers:{'auth-token':localStorage.getItem('auth-token')}})
-    .then(res => console.log(res))
-    .catch(res => console.log(err))
-  } */
-
   const setEditing = (id) => {
     setIsEditing(true)
     const item = todos.find((i) => i._id === id);
-    //console.log(item.todo)
     setCurrentTodo(item.todo)
     setCurrentUpdateItem(id)
   }
@@ -71,12 +65,17 @@ const AppProvider = ({ children }) => {
     fetchInfo()
   }, [])
 
+  useEffect(()=>{
+    fetchInfo()
+  },[loading])
+
   return <AppContext.Provider value={{
     auth, setAuth,
     todos, setTodos,
     currentTodo, setCurrentTodo,
     isEditing, setIsEditing, setEditing,
-    addTodo, deleteTodo,user
+    addTodo, deleteTodo,user,
+    loading,setLoading
   }}>
     {children}
   </AppContext.Provider>
