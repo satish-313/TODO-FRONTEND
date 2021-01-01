@@ -6,7 +6,7 @@ import {Redirect,Link} from 'react-router-dom';
 import ShowError from './ShowError'
 
 const Signup = () => {
-  const {setLoading,auth} = useGlobalContext()
+  const {setLoading,auth,setCookie} = useGlobalContext()
   const [username, setUsername] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
@@ -35,7 +35,7 @@ const Signup = () => {
         .then(res => {
           console.log(res)
           if (res.data.auth) {
-            localStorage.setItem('auth-token', res.headers['auth-token'])
+            setCookie('auth-token',res.headers['auth-token'])
             setLoading(true)
           }
           else{

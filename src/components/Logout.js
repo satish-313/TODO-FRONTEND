@@ -3,11 +3,11 @@ import {Redirect} from 'react-router-dom';
 import {useGlobalContext} from '../context';
 
 const Logout = () => {
-  const {auth,setAuth} = useGlobalContext();
+  const {auth,setAuth,setCookie} = useGlobalContext();
 
   const logout = () => {
     const empty = ''
-    localStorage.setItem('auth-token',empty)
+    setCookie('authToken',empty)
     setAuth(false)
   }
   return(

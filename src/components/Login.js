@@ -6,7 +6,7 @@ import {useGlobalContext} from '../context';
 import ShowError from './ShowError'
 
 const Login = () => {
-  const {auth,setLoading} = useGlobalContext();
+  const {auth,setLoading,setCookie} = useGlobalContext();
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
   const [err,setErr] = useState({type:false,msg:''})
@@ -26,7 +26,7 @@ const Login = () => {
       }
     )
       .then(res => {
-        localStorage.setItem('auth-token',res.headers['auth-token'])
+        setCookie('authToken',res.headers['auth-token'])
         if(res.data.auth){
           setLoading(true)
         }
